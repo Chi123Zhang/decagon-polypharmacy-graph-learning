@@ -11,9 +11,19 @@ The following models are implemented and evaluated:
 - RESCAL (binary and multi-class settings)
 - R-GCN (binary and multi-class settings)
 
-## Dataset
+## Data
 We use the Decagon drug–drug interaction dataset, which contains known side effects induced by combinations of drugs.  
 Each drug pair may be associated with one or more side effect types.
+
+The experiments were run in Google Colab using data stored on Google Drive.
+
+- File: `bio-decagon-combo.csv`
+- Original source: Decagon (Zitnik et al., 2018)
+- Download link: https://snap.stanford.edu/decagon/
+
+Due to file size constraints, the dataset is not included in this repository.
+If neaded, please download the data manually and place it under `data/`.
+
 
 ## Repository Structure
 - `notebooks/` — codes model training, evaluation, and visualization notebooks  
