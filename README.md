@@ -16,6 +16,6 @@ We use the Decagon drug–drug interaction dataset, which contains known side ef
 Each drug pair may be associated with one or more side effect types.
 
 ## Repository Structure
-- `notebooks/` — model training, evaluation, and visualization notebooks  
+- `notebooks/` — codes model training, evaluation, and visualization notebooks  
 - `report/` — final project report (PDF)  
 - `slides/` — forum presentation slides
