@@ -28,12 +28,11 @@ The repository includes the core CSVs under `Data/`:
 Source and documentation: https://snap.stanford.edu/decagon/
 
 ## Repository Structure
-- `Data/` — Decagon/TWOSIDES CSVs used by the notebooks
 - `RESCAL/` — RESCAL + baseline notebook
 - `R-GCN/` — R-GCN notebooks (plain, +ChemBERTa features, +GROVER features)
 - `ChemBERTa + MLP/` — ChemBERTa embedding + MLP notebook
-- `GROVER + MLP/` — GROVER embedding + MLP notebook (and `grover/` helper code)
-- `Report/` — proposal / progress report PDFs
+- `GROVER + MLP/` — GROVER embedding + MLP notebook
+- `Report/` — proposal / progress / final report PDFs
 
 ## Running
 Most code lives in notebooks (`.ipynb`). Recommended workflow:
@@ -46,4 +45,8 @@ Notes:
 - Some experiments expect intermediate artifacts (e.g., `refined_drug_embeddings_*.pkl`, model checkpoints) that are not committed; they are produced when running the notebooks end-to-end.
 
 ## Reference
-Zitnik, M., Agrawal, M., & Leskovec, J. (2018). Modeling polypharmacy side effects with graph convolutional networks. Bioinformatics.
+- Zitnik, M., Agrawal, M., & Leskovec, J. (2018). Modeling polypharmacy side effects with graph convolutional networks. Bioinformatics.
+- Nickel, M., Tresp, V., & Kriegel, H.-P. (2011). A Three-Way Model for Collective Learning on Multi-Relational Data (RESCAL). ICML.
+- Schlichtkrull, M., Kipf, T. N., Bloem, P., van den Berg, R., Titov, I., & Welling, M. (2018). Modeling Relational Data with Graph Convolutional Networks. ESWC.
+- Seyone Chithrananda, Gabriel Grand, and Bharath Ramsundar, “ChemBERTa: Large-Scale Self-Supervised Pretraining for Molecular Property Prediction,” arXiv:2010.09885, 2020.
+- S. Hakim and A. Ngom, “PolyLLM: polypharmacy side effect prediction via LLM-based SMILES encodings,” Frontiers in Pharmacology, vol. 16, p. 1617142, July 31, 2025, doi:10.3389/fphar.2025.1617142. 
