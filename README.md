@@ -1,31 +1,48 @@
 # decagon-polypharmacy-graph-learning
-Benchmarking different models on the Decagon dataset for polypharmacy side-effect prediction.
-# Graph-Based Polypharmacy Side Effect Prediction
+Benchmarking models on the Decagon dataset for polypharmacy side-effect prediction.
 
-This project benchmarks graph-based learning models on the Decagon dataset for predicting polypharmacy-induced side effects.  
-We investigate both binary association prediction and multi-class side effect prediction under a unified graph learning framework.
+## Overview
+This project benchmarks learning-based baselines on the Decagon (TWOSIDES) polypharmacy dataset for predicting adverse side effects caused by **drug combinations**.
 
-## Models
-The following models are implemented and evaluated:
+Because a single drug pair can be associated with **multiple** side effects, the primary problem setting is **multi-label prediction**. We also include a **binary** setting (predict whether a drug pair has any reported side effect).
+
+## Tasks
+- **Binary association prediction (link existence)** Predict whether a drug pair has *any* associated polypharmacy side effect.
+- **Multi-label side effect prediction** Predict the set of side effects associated with a drug pair (one pair → many labels).
+- **(Optional) Hierarchical / coarse-label evaluation** Map fine-grained side effects to broader disease classes for an additional multi-label evaluation.
+
+## Models 
+Implemented and evaluated:
 - Frequency-based baseline
-- RESCAL (binary and multi-class settings)
-- R-GCN (binary and multi-class settings)
+- RESCAL (binary and multi-label settings)
+- R-GCN (binary and multi-label settings)
+- MLP baselines using precomputed drug embeddings (e.g., ChemBERTa / GROVER variants)
+
+## Metrics
+We report metrics suited for highly imbalanced multi-label prediction:
+- AUROC (micro / macro)
+- AUPR / AUCPR (micro / macro)
+- AP@50 (ranking metric)
+- F1 (micro / macro) at a chosen threshold
 
 ## Data
-We use the Decagon drug–drug interaction dataset, which contains known side effects induced by combinations of drugs.  
-Each drug pair may be associated with one or more side effect types.
+We use the Decagon drug–drug–side-effect dataset (Zitnik et al., 2018). The project expects the following files (not included due to size constraints):
+- `bio-decagon-combo.csv`
+- `bio-decagon-effectcategories.csv` (for hierarchical / coarse mapping)
 
-The experiments were run in Google Colab using data stored on Google Drive.
+Original source: https://snap.stanford.edu/decagon/
 
-- File: `bio-decagon-combo.csv`
-- Original source: Decagon (Zitnik et al., 2018)
-- Download link: https://snap.stanford.edu/decagon/
-
-Due to file size constraints, the dataset is not included in this repository.
-If neaded, please download the data manually and place it under `data/`.
-
+Download the files manually and place them in the expected location (see notebook `base_path` variables and/or a local `data/` folder).
 
 ## Repository Structure
-- `notebooks/` — codes model training, evaluation, and visualization notebooks  
-- `report/` — final project report (PDF)  
-- `slides/` — forum presentation slides
+Top-level folders in this repository:
+  - `RESCAL/` — RESCAL baselines and experiments
+  - `Graph Model/` — R-GCN experiments (binary + multi-label), plus feature-augmented variants
+  - `ChemBERTa/` — ChemBERTa embedding + MLP experiments
+  - `GROVER_FINAL/` — GROVER embedding generation + MLP experiments
+  - `report/` — final project report (PDF) 
+  - `slides/` — presentation slides *(if included)*
+
+  ## Notes
+
+  Experiments were originally run in Google Colab and later adapted to local/remote paths using `base_path`.
