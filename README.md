@@ -4,10 +4,10 @@ Benchmarking baseline models on the Decagon (TWOSIDES) dataset for polypharmacy 
 This project focuses on predicting adverse side effects caused by **drug combinations**. Since a drug pair can have **multiple** side effects, the primary setting is **multi-label prediction**; a simpler **binary** setting (any side effect vs. none) is also included.
 
 ## Tasks
-- **Binary association prediction**: predict whether a drug pair has *any* associated polypharmacy side effect.
-- **Multi-label side effect prediction**: predict the set of side effects for a drug pair (one pair → many labels).
-- **(Optional) Coarse / hierarchical evaluation**: map fine-grained side effects to broader categories using `bio-decagon-effectcategories.csv`.
-
+- **Binary association prediction**: predict whether a drug pair exhibits *any* polypharmacy side effect (binary classification).
+- **Multi-class side effect prediction**: predict the *dominant* side effect type for a drug pair, formulated as a large-scale multi-class classification problem (up to 1,317 side-effect classes).
+- **Hierarchical (coarse-grained) evaluation**: map fine-grained side effects to broader disease-level categories (766 classes) using `bio-decagon-effectcategories.csv` to mitigate extreme class imbalance.
+  
 ## Models
 - Frequency-based baseline
 - **RESCAL** (binary + multi-label)
