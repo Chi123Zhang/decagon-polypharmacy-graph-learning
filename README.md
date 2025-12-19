@@ -44,6 +44,9 @@ Notes:
 - Several notebooks include `!pip install ...` cells intended for Colab. If you manage dependencies yourself, you can skip those cells.
 - Some experiments expect intermediate artifacts (e.g., `refined_drug_embeddings_*.pkl`, model checkpoints) that are not committed; they are produced when running the notebooks end-to-end.
 
+### Results
+- `results/model_results_summary.xlsx`: Summary of binary classification performance (AUROC/AUPR) across baseline, tensor factorization, graph neural networks, and transformer-based models.
+  
 ## Reference
 - Zitnik, M., Agrawal, M., & Leskovec, J. (2018). Modeling polypharmacy side effects with graph convolutional networks. Bioinformatics.
 - Nickel, M., Tresp, V., & Kriegel, H.-P. (2011). A Three-Way Model for Collective Learning on Multi-Relational Data (RESCAL). ICML.
