@@ -39,17 +39,23 @@ Most code lives in notebooks (`.ipynb`). Recommended workflow:
 1. Start Jupyter from the repo root so relative paths work: `jupyter lab`
 2. Open a notebook from one of the model folders.
 3. Search for `base_path` in the notebook and update it to point at your local data location.
+4. Specifics for each model:
+   - GROVER: please first retrieve the SMILEs strings from the ChemBERTa notebook before using GROVER to tokenize the drugs into embeddings
+   - R-GCN + ChemBERTa / GROVER: please first retrieve the embeddings from GROVER / ChemBERTa notebook before running this model
 
 Notes:
 - Several notebooks include `!pip install ...` cells intended for Colab. If you manage dependencies yourself, you can skip those cells.
 - Some experiments expect intermediate artifacts (e.g., `refined_drug_embeddings_*.pkl`, model checkpoints) that are not committed; they are produced when running the notebooks end-to-end.
+- For the GROVER model, we cloned from git using this version: https://github.com/tencent-ailab/grover.git
 
 ### Results
 - `results/model_results_summary.xlsx`: Summary of binary classification performance (AUROC/AUPR) across baseline, tensor factorization, graph neural networks, and transformer-based models.
   
 ## Reference
-- Zitnik, M., Agrawal, M., & Leskovec, J. (2018). Modeling polypharmacy side effects with graph convolutional networks. Bioinformatics.
-- Nickel, M., Tresp, V., & Kriegel, H.-P. (2011). A Three-Way Model for Collective Learning on Multi-Relational Data (RESCAL). ICML.
-- Schlichtkrull, M., Kipf, T. N., Bloem, P., van den Berg, R., Titov, I., & Welling, M. (2018). Modeling Relational Data with Graph Convolutional Networks. ESWC.
-- Seyone Chithrananda, Gabriel Grand, and Bharath Ramsundar, “ChemBERTa: Large-Scale Self-Supervised Pretraining for Molecular Property Prediction,” arXiv:2010.09885, 2020.
-- S. Hakim and A. Ngom, “PolyLLM: polypharmacy side effect prediction via LLM-based SMILES encodings,” Frontiers in Pharmacology, vol. 16, p. 1617142, July 31, 2025, doi:10.3389/fphar.2025.1617142. 
+
+- Seyone Chithrananda, Gabriel Grand, and Bharath Ramsundar. 2020. Chemberta: Large-scale self-supervised pretraining for molecular property prediction. arXiv preprint arXiv:2010.09885. Submitted to NeurIPS 2020 Workshop on Machine Learning for Molecules.
+- S. Hakim and A. Ngom. 2025. Polyllm: Polypharmacy side effect prediction via llm-based smiles encodings. Frontiers in Pharmacology, 16:1617142.
+- S. Lin, G. Zhang, D. Q. Wei, and Y. Xiong. 2022. Deeppse: Prediction of polypharmacy side effects by fusing deep representation of drug pairs and attention mechanism. Computers in Biology and Medicine, 149:105984.
+- Maximilian Nickel, Volker Tresp, and Hans-Peter Kriegel. 2011. A three-way model for collective learning on multi-relational data. In Proceedings of the 28th International Conference on Machine Learning (ICML), pages 809–816.
+- Michael Schlichtkrull, Thomas N. Kipf, Peter Bloem, Rianne van den Berg, Ivan Titov, and Max Welling. 2017. Modeling relational data with graph convolutional networks. arXiv preprint arXiv:1703.06103.
+- Marinka Zitnik, Monica Agrawal, and Jure Leskovec. 2018. Modeling polypharmacy side effects with graph convolutional networks. Bioinformatics, 34(13):i457–i466.
